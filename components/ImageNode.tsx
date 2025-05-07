@@ -52,6 +52,7 @@ const ImageNode = ({ data }: { data: NodeType }) => {
               width={224}
               height={224}
               alt="Picture of the author"
+              className="rounded-md"
             />
           </div>
         </>
@@ -67,6 +68,7 @@ const ImageNode = ({ data }: { data: NodeType }) => {
               width={224}
               height={224}
               alt="Picture of the author"
+              className="rounded-md"
             />
           </div>
         </>

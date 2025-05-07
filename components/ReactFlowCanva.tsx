@@ -51,7 +51,12 @@ const ReactFlowCanva = () => {
   }, [loading]);
 
   // ## All about Rendering
-  if (loading) return <div className="mx-auto">Loading feature Maps</div>;
+  if (loading)
+    return (
+      <div className="mx-auto w-screen h-screen flex flex-col justify-center items-center">
+        Loading VGG16 visualization...
+      </div>
+    );
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
@@ -66,8 +71,8 @@ const ReactFlowCanva = () => {
         // fitView
       >
         <Background />
-        <Controls />
-        <MiniMap />
+        <Controls orientation="horizontal" position="bottom-center" />
+        <MiniMap color="black" />
       </ReactFlow>
     </div>
   );
