@@ -1,12 +1,12 @@
-import { ApiResponse, Edge, Node } from "@/types/global";
+import { ApiAllResponse, Edge, Node } from "@/types/global";
 
-const generateConvNodes = (loading: boolean, layerInfo: ApiResponse) => {
+const generateConvNodes = (loading: boolean, layerInfo: ApiAllResponse) => {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
   const baseX = 400;
   const initialY = 200;
   const ySpacing = 300;
-  const layers = 13;
+  const layers = 2;
   const featureMapsPerLayer = 6;
   const connectorIds = ["a", "b", "c", "d", "e", "f"];
 
@@ -48,8 +48,10 @@ const generateConvNodes = (loading: boolean, layerInfo: ApiResponse) => {
           id: connectorId,
           layer,
           featureMap: fm + 1,
-          featureMapData: layerInfo?.response[fm]?.approximate_output,
-          approximateInputData: layerInfo?.response[fm]?.approximate_input,
+          featureMapData:
+            layerInfo?.response[layer - 1]?.[fm]?.approximate_output,
+          approximateInputData:
+            layerInfo?.response[layer - 1]?.[fm]?.approximate_input,
         },
       };
       currentLayerNodes.push(newNode);

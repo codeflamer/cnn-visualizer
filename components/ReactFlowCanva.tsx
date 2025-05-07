@@ -5,6 +5,7 @@ import {
   addEdge,
   applyEdgeChanges,
   Background,
+  Connection,
   ConnectionLineType,
   Controls,
   MiniMap,
@@ -13,34 +14,40 @@ import {
   useNodesState,
 } from "@xyflow/react";
 import ImageNode from "./ImageNode";
-import useFeatureInput from "@/hooks/useFeatureInput";
-import generateConvNodes from "@/libs/utils";
+import useAllFeatures from "@/hooks/useAllFeatures";
+import generateConvNodesNew from "@/libs/utilsnew";
+import { Edge, Node, OnEdgesChange } from "@/types/global";
 
 const nodeTypes = {
   ImageUpdater: ImageNode,
 };
 
 const ReactFlowCanva = () => {
-  const { loading, layers: layerInfo } = useFeatureInput();
+  const { loading, layers: layerInfo } = useAllFeatures();
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
+  const [edges, setEdges] = useEdgesState<Edge>([]);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
+    (params: Connection) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
 
-  const onEdgesChange = useCallback(
+  const onEdgesChange: OnEdgesChange = useCallback(
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges]
   );
+
   useEffect(() => {
     if (!loading) {
-      const { nodes: nds, edges: edgs } = generateConvNodes(loading, layerInfo);
+      const { nodes: nds, edges: edgs } = generateConvNodesNew(
+        loading,
+        layerInfo
+      );
       setNodes(nds);
       setEdges(edgs);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   // ## All about Rendering

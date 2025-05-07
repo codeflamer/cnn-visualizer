@@ -1,15 +1,15 @@
-import { ApiResponse } from "@/types/global";
+import { ApiAllResponse } from "@/types/global";
 import { useEffect, useState } from "react";
 
-const useFeatureInput = () => {
-  const [layers, setLayers] = useState<ApiResponse>();
+const useAllFeatures = () => {
+  const [layers, setLayers] = useState<ApiAllResponse>();
   const [loading, setloading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/layer/${10}`);
-        const data: ApiResponse = await response.json();
+        const response = await fetch(`http://localhost:8000/all_layers`);
+        const data: ApiAllResponse = await response.json();
         // console.log(data.response!);
         setLayers(data);
       } catch (e) {
@@ -24,4 +24,4 @@ const useFeatureInput = () => {
   return { loading, layers };
 };
 
-export default useFeatureInput;
+export default useAllFeatures;
