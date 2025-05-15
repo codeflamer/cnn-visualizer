@@ -51,15 +51,12 @@ The application will be available at `http://localhost:3000`
 
 - `npm run dev` - Starts the development server
 - `npm run build` - Builds the application for production
-- `npm run start` - Runs the production build
-- `npm run lint` - Runs ESLint for code quality checks
 
 ## Tech Stack
 
 - **Frontend Framework**: Next.js 15.3.1
 - **Language**: TypeScript
 - **UI Components**: React 19
-- **State Management**: Zustand
 - **Styling**: Tailwind CSS
 - **Canvas Rendering**: Konva.js
 - **Flow Visualization**: @xyflow/react
@@ -84,11 +81,3 @@ cnn_visualizer/
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, please open an issue in the GitHub repository or contact the maintainers.
