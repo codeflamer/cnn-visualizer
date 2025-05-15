@@ -8,7 +8,7 @@ const useAllFeatures = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/all_layers`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`);
         const data: ApiAllResponse = await response.json();
         // console.log(data.response!);
         setLayers(data);
