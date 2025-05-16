@@ -1,6 +1,10 @@
 # CNN Visualizer
 
-A powerful web application that visualizes Convolutional Neural Network (CNN) feature maps and layer activations in real-time. This tool helps researchers, students, and machine learning enthusiasts understand how CNNs process and interpret images through different layers of the network.
+A powerful web application that visualizes Convolutional Neural Network (CNN) feature maps and layer activations in real-time. This tool helps researchers, students, and machine learning enthusiasts have an idea on how CNNs(VGG16) process and interpret images through different layers of the network.
+
+## Demo
+
+![CNN Visualizer Demo](demo.gif)
 
 ## Features
 
@@ -16,6 +20,8 @@ Before you begin, ensure you have the following installed:
 
 - Node.js (v18 or higher)
 - npm (v9 or higher)
+
+> **Note**: This is the frontend repository. The backend repository can be found at [cnn-visualizer-backend](https://github.com/codeflamer/cnn-visualizer-backend)
 
 ## Getting Started
 
