@@ -9,9 +9,8 @@ const useAllFeatures = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`);
-        const data: ApiAllResponse = await response.json();
-        // console.log(data.response!);
-        setLayers(data);
+        const data = await response.json();
+        setLayers(JSON.parse(data));
       } catch (e) {
         console.error("Error fetching feature maps:", e);
       } finally {
